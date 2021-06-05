@@ -1,18 +1,19 @@
 package com.skilldistillery.cards.common;
 
 public class Card {
+	//Fields
 	private Suit suit;
 	private Rank rank;
 	//immutable cards
 	
+	
+	//Constructor (When a card is created, it will pull from rank and suit)
 	public Card(Suit suit, Rank rank) {
 		this.suit = suit;
 		this.rank = rank;
 	}
 
-
-	
-
+	//Methods
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -21,9 +22,6 @@ public class Card {
 		result = prime * result + ((suit == null) ? 0 : suit.hashCode());
 		return result;
 	}
-
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -41,14 +39,11 @@ public class Card {
 		return true;
 	}
 
-
-
-
 	@Override
 	public String toString() {
-		return rank + " of " + suit;
+		return rank + " of " + suit; //i.e. 10 of Hearts, etc
 	}
-
+	
 	public int getValue() {
 		return rank.getValue();
 	}
