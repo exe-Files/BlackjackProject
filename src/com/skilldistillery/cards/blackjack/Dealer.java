@@ -38,9 +38,9 @@ public class Dealer {
 		dealerHand.displayHand();
 		while(dealerHand.getHandValue() < 17) {
 			addToHand();
+			System.out.println("The dealer added a card and now has: ");
+			dealerHand.displayHand();
 		}
-		System.out.println("The dealer now has ");
-		dealerHand.displayHand();
 		System.out.println("Dealer's ending deal is : "+dealerHand.getHandValue());
 	}
 	
