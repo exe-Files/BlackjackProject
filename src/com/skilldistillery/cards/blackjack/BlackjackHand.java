@@ -15,7 +15,7 @@ public class BlackjackHand extends Hand { //extends the abstract class of hand t
 	}
 
 	public void fold() {
-		this.fold();
+		getCards().clear();
 	}
 
 	public void displayHand() {
