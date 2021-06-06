@@ -37,8 +37,11 @@ public class Player implements Person {
 		System.out.println("You have " +playerHand.getHandValue());
 		dealer.turn();
 		System.out.println("Dealer has " + dealer.getHand());
+		if (playerHand.getCards().size() == 2 && playerHand.getHandValue() == 21) {
+			System.out.println("Blackjack!");
+		}
 		winnerOutcome(playerHand.getHandValue(),dealer.getHand());
-	
+		dealer.fold();
 	}
 
 	private void winnerOutcome(int playerHand, int dealerHand) {
@@ -50,6 +53,9 @@ public class Player implements Person {
 		}
 		else if ( playerHand <= 21 && playerHand == dealerHand ) {
 			System.out.println("It's a draw this time...");
+		}
+		else if (playerHand >21 ) {
+			System.out.println("Looks like you busted this round...");
 		}
 		else {
 			System.out.println("Looks like you lost that round...");
