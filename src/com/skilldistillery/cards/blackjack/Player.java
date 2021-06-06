@@ -13,8 +13,10 @@ public class Player implements Person {
 	
 	//Constructors
 	public Player() {
-		this.getHand(dealer.dealHand()); //starting hand dealt
-		this.getHand(dealer.dealHand()); //starting hand dealt
+		for(int i = 0; i < 2; i ++) {
+			this.getHand(dealer.dealHand()); //starting hand dealt to player
+			dealer.addToHand(); //adds card to dealer's hand
+		}
 	}
 	
 	//Methods

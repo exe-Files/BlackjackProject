@@ -11,7 +11,7 @@ public class Dealer implements Person {
 	private Deck deck = new Deck(); //new instance of deck of shuffled 52 cards 
 	
 	public Card dealHand() { //Deals starting hand, adds a card to hand, returns one to player
-		addToHand(); //adds a card to dealerHand
+//		addToHand(); //adds a card to dealerHand
 		return deck.dealCard(); //returns a card to playerHand
 		
 	}
@@ -20,7 +20,7 @@ public class Dealer implements Person {
 		return dealerHand.getHandValue();
 	}
 
-	public void addToHand() { //adds another card to the hand
+	public void addToHand() { //adds a card from deck to the hand
 		dealerHand.addCard(deck.dealCard());
 		
 	}
@@ -44,13 +44,15 @@ public class Dealer implements Person {
 	}
 
 	public void turn() {
+		dealerHand.displayHand();
+		System.out.println("Dealer's starting hand is: " + dealerHand.getHandValue());
 		while(dealerHand.getHandValue() < 17) {
 			addToHand();
-			System.out.println("The dealer has ");
+			System.out.println("The dealer now has ");
 			dealerHand.displayHand();
 		}
 		dealerHand.displayHand();
-		System.out.println(dealerHand.getHandValue());
+		System.out.println("Dealer's ending deal is : "+dealerHand.getHandValue());
 	}
 
 }
