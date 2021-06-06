@@ -29,18 +29,28 @@ public class Player2 {
 		} catch (Exception e) {
 			System.out.println("Sneaky hobbitses");
 		}
+		sc.nextLine();
 		return userInput;
 
 	}
-	public int playerInput(int zero) {
+	public boolean playAgain() {
 		//Overloaded method
-		int userInput = 0;
 		try {
-			userInput = sc.nextInt();
+			String userInput = sc.nextLine();
+			if (userInput.contains("Y") || userInput.contains("y")){
+				return true;
+			}				
+			else if (userInput.contains("N") || userInput.contains("n")){
+				return false;
+			}
+				
 		} catch (Exception e) {
 			System.out.println("Sneaky hobbitses");
+			System.out.println("Try entering 'Y' or 'N' ");
+			
 		}
-		return userInput;
+		
+		return false;
 		
 	}
 

@@ -26,20 +26,26 @@ public class BlackJackApp2 {
 				dealer.addToHand();
 			}
 			boolean checkMenu = true;
+			System.out.println("Your starting hand is: " + player2.getHandValue());
+			player2.displayHand();
 			while (player2.getHandValue() < 21 && checkMenu == true) {
 				showMenu(); // displays menu to screen
 				checkMenu = menuSwitch(player2.playerInput()); //Player's turn, 
 															   //returns false if they choose to stay
 			}
 			dealer.turn(); //Dealer's turn
+			System.out.println("************************");
 			System.out.println("\nYou have " + player2.getHandValue());
 			System.out.println("Dealer has " + dealer.getHandValue());
+			System.out.println();
 			winnerOutcome(player2.getHandValue(), dealer.getHandValue());
 			player2.fold();
 			dealer.fold(); // clears both hands for the next round
+			dealer.newDeck(); //grabs a new deck
 			System.out.println("\nPlay again?\n (Y or N)");
-			playAgain = true;
+			playAgain = player2.playAgain();
 		} while(playAgain == true);
+		System.out.println("You decided that's enough gambling for today...");
 	}
 
 	// System.out.println("You decided that's enough gambling for today.");
@@ -68,6 +74,7 @@ public class BlackJackApp2 {
 		case 1: // add a card
 			System.out.println("You decided to add another card to your hand.");
 			player2.addToHand(dealer.dealHand()); //adds a card dealt by the dealer from the deck
+			System.out.println(player2.getHandValue() + " total");
 			break;
 
 		case 2:

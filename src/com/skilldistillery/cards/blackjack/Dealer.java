@@ -24,7 +24,7 @@ public class Dealer {
 		
 	}
 
-	public void holdHand() { //no cards added, displays value
+	public void displayHand() { //no cards added, displays value
 		dealerHand.displayHand();
 		
 	}
@@ -33,20 +33,19 @@ public class Dealer {
 		dealerHand.fold();
 	}
 
-	public void playHand() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	public void turn() {
 		System.out.println("Dealer's starting hand is: " + dealerHand.getHandValue());
 		dealerHand.displayHand();
 		while(dealerHand.getHandValue() < 17) {
 			addToHand();
-			System.out.println("The dealer now has ");
-			dealerHand.displayHand();
 		}
+		System.out.println("The dealer now has ");
+		dealerHand.displayHand();
 		System.out.println("Dealer's ending deal is : "+dealerHand.getHandValue());
+	}
+	
+	public void newDeck() {
+		deck = new Deck();
 	}
 
 }
