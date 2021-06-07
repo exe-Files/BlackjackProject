@@ -1,9 +1,9 @@
 package com.skilldistillery.cards.common;
 
 public interface Person {
-	int getHand();
-	void holdHand();
-	void playHand();
+	int getHandValue();
+	void displayHand();
+	void addToHand();
 	void fold();
 	
 	

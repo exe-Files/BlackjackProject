@@ -1,12 +1,10 @@
 package com.skilldistillery.cards.blackjack;
 
-import java.util.List;
-
 import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Deck;
 import com.skilldistillery.cards.common.Person;
 
-public class Dealer {
+public class Dealer implements Person{
 	private BlackjackHand dealerHand = new BlackjackHand(); //the dealer's hand
 	private Deck deck = new Deck(); //new instance of deck of shuffled 52 cards 
 	
@@ -14,21 +12,27 @@ public class Dealer {
 		return deck.dealCard(); //returns a card to playerHand
 		
 	}
+
+	public void newDeck() {
+		deck = new Deck();
+	}
 	
+	@Override
 	public int getHandValue() { //checks card value in hand
 		return dealerHand.getHandValue();
 	}
 
-	public void addToHand() { //adds a card from deck to the hand
-		dealerHand.addCard(deck.dealCard());
-		
-	}
-
+	@Override
 	public void displayHand() { //no cards added, displays value
 		dealerHand.displayHand();
-		
 	}
 
+	@Override
+	public void addToHand() { //adds a card from deck to the hand
+		dealerHand.addCard(deck.dealCard());
+	}
+
+	@Override
 	public void fold() {
 		dealerHand.fold();
 	}
@@ -44,8 +48,5 @@ public class Dealer {
 		System.out.println("Dealer's ending deal is : "+dealerHand.getHandValue());
 	}
 	
-	public void newDeck() {
-		deck = new Deck();
-	}
 
 }
