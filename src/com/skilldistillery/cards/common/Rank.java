@@ -8,7 +8,7 @@ public enum Rank {
 	//Fields
 	private int value;
 	
-	//Methods
+	//
 	private Rank(int value) {
 		this.value = value;
 	}
